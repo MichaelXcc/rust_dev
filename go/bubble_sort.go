@@ -25,13 +25,13 @@ import "fmt"
 // 返回：排序后的切片（原地排序，返回的是同一个切片）
 func bubbleSort(arr []int) []int {
 	n := len(arr)
-	
+
 	// 外层循环：控制排序的轮数
 	// 共需要 n-1 轮排序
 	for i := 0; i < n-1; i++ {
 		// swapped 标志用于优化：如果某一轮没有发生交换，说明数组已经有序
 		swapped := false
-		
+
 		// 内层循环：进行相邻元素的比较和交换
 		// 每轮结束后，最大的元素会"冒泡"到末尾
 		// 所以每轮需要比较的次数是 n-1-i
@@ -43,13 +43,13 @@ func bubbleSort(arr []int) []int {
 				swapped = true
 			}
 		}
-		
+
 		// 如果这一轮没有发生任何交换，说明数组已经有序，提前结束
 		if !swapped {
 			break
 		}
 	}
-	
+
 	return arr
 }
 
@@ -57,29 +57,29 @@ func bubbleSort(arr []int) []int {
 func main() {
 	// 创建一个无序的整数切片
 	arr := []int{64, 34, 25, 12, 22, 11, 90}
-	
+
 	fmt.Println("====== 冒泡排序 (Bubble Sort) ======")
 	fmt.Println("原始数组:", arr)
-	
+
 	// 调用冒泡排序函数
 	bubbleSort(arr)
-	
+
 	fmt.Println("排序后:", arr)
-	
+
 	// 测试已排序数组（最好情况）
 	fmt.Println("\n--- 测试已排序数组 ---")
 	sortedArr := []int{1, 2, 3, 4, 5, 6, 7}
 	fmt.Println("原始数组:", sortedArr)
 	bubbleSort(sortedArr)
 	fmt.Println("排序后:", sortedArr)
-	
+
 	// 测试逆序数组（最坏情况）
 	fmt.Println("\n--- 测试逆序数组 ---")
 	reversedArr := []int{7, 6, 5, 4, 3, 2, 1}
 	fmt.Println("原始数组:", reversedArr)
 	bubbleSort(reversedArr)
 	fmt.Println("排序后:", reversedArr)
-	
+
 	// 测试包含重复元素的数组
 	fmt.Println("\n--- 测试包含重复元素的数组 ---")
 	duplicateArr := []int{3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5}
